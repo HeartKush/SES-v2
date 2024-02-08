@@ -1,51 +1,164 @@
 ---
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<html lang="en" class="scroll-smooth ease-in-out delay-1000">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="dark">
+    <slot />
+  </body>
 </html>
 <style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
+  :root {
+    --accent: 136, 58, 234;
+    --accent-light: 224, 204, 250;
+    --accent-dark: 49, 10, 101;
+    --accent-gradient: linear-gradient(
+      45deg,
+      rgb(var(--accent)),
+      rgb(var(--accent-light)) 30%,
+      white 60%
+    );
+  }
+  html {
+    font-family: "Segoe UI";
+    background: url("/image/bg-home.webp") no-repeat center center fixed;
+    background-size: cover;
+  }
+  code {
+    font-family:
+      Menlo,
+      Monaco,
+      Lucida Console,
+      Liberation Mono,
+      DejaVu Sans Mono,
+      Bitstream Vera Sans Mono,
+      Courier New,
+      monospace;
+  }
+</style>
+
+<style is:global lang="scss">
+  $pink: #db00ff;
+  $basic-purple: #7743db;
+  $yellow: rgb(161, 224, 13);
+  $gradient-purple: linear-gradient(90deg, #db00ff 1%, #8a8afffc 93.03%);
+
+  .text-pink {
+    color: $pink;
+  }
+  .text-purple {
+    color: $basic-purple;
+  }
+  .text-gradient-purple {
+    background: $gradient-purple;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .shadow-white {
+    text-shadow: 0 0 3px rgba(255, 255, 255, 0.3);
+  }
+  .border-outline {
+    outline: 1px;
+  }
+    .slide-in-top {
+    -webkit-animation: slide-in-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+      both;
+    animation: slide-in-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    transition: all;
+  }
+
+  @-webkit-keyframes slide-in-top {
+    0% {
+      -webkit-transform: translateY(-1000px);
+      transform: translateY(-1000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  @keyframes slide-in-top {
+    0% {
+      -webkit-transform: translateY(-20px);
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  @keyframes glitch_4011 {
+    0% {
+      clip-path: var(--move1);
+      transform: translate(0px, -10px);
+    }
+
+    10% {
+      clip-path: var(--move2);
+      transform: translate(-10px, 10px);
+    }
+
+    20% {
+      clip-path: var(--move3);
+      transform: translate(10px, 0px);
+    }
+
+    30% {
+      clip-path: var(--move4);
+      transform: translate(-10px, 10px);
+    }
+
+    40% {
+      clip-path: var(--move5);
+      transform: translate(10px, -10px);
+    }
+
+    50% {
+      clip-path: var(--move6);
+      transform: translate(-10px, 10px);
+    }
+
+    60% {
+      clip-path: var(--move1);
+      transform: translate(10px, -10px);
+    }
+
+    70% {
+      clip-path: var(--move3);
+      transform: translate(-10px, 10px);
+    }
+
+    80% {
+      clip-path: var(--move2);
+      transform: translate(10px, -10px);
+    }
+
+    90% {
+      clip-path: var(--move4);
+      transform: translate(-10px, 10px);
+    }
+
+    100% {
+      clip-path: var(--move1);
+      transform: translate(0);
+    }
+  }
 </style>
