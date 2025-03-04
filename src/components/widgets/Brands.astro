@@ -1,0 +1,40 @@
+---
+import { Image } from "astro:assets";
+
+export interface Props {
+  images: image[];
+}
+interface image {
+  src: string;
+  alt: string;
+}
+
+const { images } = Astro.props;
+
+---
+<div class="flex flex-wrap justify-center gap-x-6 sm:gap-x-12 lg:gap-x-10 ">
+  {
+    images?.map(({ src, alt }) => (
+      <div class="flex justify-center col-span-1 my-2 lg:my-4 py-1 max-w-240 px-3 rounded-md bg-gray-200">
+        <Image
+          width={500}
+          height={10}
+          alt={alt}
+          loading="lazy"
+          decoding="async"
+          class="max-h-20 md:max-h-16"
+          src={src}
+        />
+      </div>
+    ))
+  }
+</div>
+
+<style>
+  img {
+    min-width: 210px;
+  }
+  .max-w-240 {
+    max-width: 240px;
+  }
+</style>

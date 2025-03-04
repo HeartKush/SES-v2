@@ -1,11 +1,33 @@
 ---
 import Layout from "../layouts/Layout.astro";
-
+import Navbar from "../components/Navbar.astro";
+import HeroSection from "../components/Hero.astro";
+import About from "../components/About.astro";
+import History from "../components/History.astro";
+import Partners from "../components/Partners.astro";
+import Footer from "../components/Footer.astro";
+import SpaceBg from "../components/ui/Space-bg.astro";
+import Contact from "../components/Contact.astro";
 ---
 
-<Layout title="IAPP">
+<Layout title="Softwow">
+  <!--   <SocialMedia class="hidden md:hidden" /> -->
 
-  <main class="slide-in-top px-10 mx-auto 2xl:w-4/5">
+  <Navbar
+    links={[
+      { text: "Inicio", href: "#home", ariaLabel: "home" },
+      { text: "Nosotros", href: "#about", ariaLabel: "about me" },
+      { text: "Aliados", href: "#partners", ariaLabel: "partners" },
+      { text: "Contacto", href: "#contact", ariaLabel: "contact" },
+    ]}
+  />
+  <HeroSection />
 
+  <main class="slide-in-top px-4 flex flex-col">
+    <About />
+    <History />
+    <Partners />
+    <Contact />
   </main>
+  <Footer />
 </Layout>

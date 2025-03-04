@@ -1,0 +1,35 @@
+---
+import HeroSection from "../components/widgets/Hero.astro";
+import SpaceBg from "./ui/Space-bg.astro";
+---
+
+<section id="home">
+  <SpaceBg>
+    <Fragment slot="content">
+      <HeroSection
+        image={{ src: "/image/logoBlanco.webp", alt: "SES logo imagen" }}
+      >
+        <Fragment slot="title">
+          Lideramos la Transformación Digital de Mipymes en Comercio Electrónico
+        </Fragment>
+
+        <Fragment slot="subtitle">
+          ¡Habla con nosotros y comienza tu transformación hoy!
+        </Fragment>
+        <Fragment slot="content">
+          <a
+            class="flex"
+            href="https://share.hsforms.com/1CG3r046qTmepbtFNNcKNGgcwalw"
+            target="_blank"
+          >
+            <button
+              class="relative text-xl text-slate-50 overflow-visible rounded-full hover:-translate-y-1 px-12 py-3 shadow-xl bg-blue-950 after:content-[''] after:absolute after:rounded-full after:inset-0 after:bg-blue-950/20 after:z-[-1] after:transition after:!duration-500 hover:after:scale-150 hover:after:opacity-0"
+              role="button"
+              id="hire">Agenda asesoria gratis</button
+            >
+          </a>
+        </Fragment>
+      </HeroSection>
+    </Fragment>
+  </SpaceBg>
+</section>

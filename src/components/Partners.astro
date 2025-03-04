@@ -1,0 +1,97 @@
+---
+import Brands from "./widgets/Brands.astro";
+---
+
+<section id="partners" class="flex items-center gap-5 flex-col pt-32">
+  <h2 class="text-slate-200 text-4xl lg:text-5xl text-center font-semibold">
+    Aliados
+  </h2>
+  <p class="text-muted text-slate-200 text-xl md:text-2xl text-center">
+    En Softwow, creemos en la colaboración para impulsar la innovación y crear
+    experiencias excepcionales.
+  </p>
+  <div
+    class="shake-vertical relative pt-10 w-4/5 mx-auto md:py-12 2xl 2xl:pb-16 text-default"
+  >
+    <Brands
+      images={[
+        {
+          src: "/image/brands/camara.webp",
+          alt: "Camara de comercio de Cúcuta",
+        },
+        {
+          src: "/image/brands/innovacion.webp",
+          alt: "Innovación Empresarial",
+        },
+        {
+          src: "/image/brands/gobernacion.webp",
+          alt: "Gobernación de Norte de Santander",
+        },
+      ]}
+    />
+  </div>
+</section>
+<style>
+  .shake-vertical {
+    -webkit-animation: shake-vertical 18s
+      cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite both;
+    animation: shake-vertical 18s cubic-bezier(0.455, 0.03, 0.515, 0.955)
+      infinite both;
+  }
+  @-webkit-keyframes shake-vertical {
+    0%,
+    100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+    10%,
+    30%,
+    50%,
+    70% {
+      -webkit-transform: translateY(-8px);
+      transform: translateY(-8px);
+    }
+    20%,
+    40%,
+    60% {
+      -webkit-transform: translateY(8px);
+      transform: translateY(8px);
+    }
+    80% {
+      -webkit-transform: translateY(6.4px);
+      transform: translateY(6.4px);
+    }
+    90% {
+      -webkit-transform: translateY(-6.4px);
+      transform: translateY(-6.4px);
+    }
+  }
+  @keyframes shake-vertical {
+    0%,
+    100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+    10%,
+    30%,
+    50%,
+    70% {
+      -webkit-transform: translateY(-8px);
+      transform: translateY(-8px);
+    }
+    20%,
+    40%,
+    60% {
+      -webkit-transform: translateY(8px);
+      transform: translateY(8px);
+    }
+    80% {
+      -webkit-transform: translateY(6.4px);
+      transform: translateY(6.4px);
+    }
+    90% {
+      -webkit-transform: translateY(-6.4px);
+      transform: translateY(-6.4px);
+    }
+  }
+</style>

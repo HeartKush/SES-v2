@@ -1,0 +1,175 @@
+---
+import { Image } from "astro:assets";
+import Menu from "../../public/icon/menu.svg";
+import Close from "../../public/icon/close.svg";
+import SoftwowLogo from "../../public/image/softwow-blanco.webp";
+import SpaceButton from "../components/ui/spaceButton.astro";
+import SocialMediaMobile from "./ui/socialMediaMobile.astro";
+
+interface Link {
+  text?: string;
+  href?: string;
+  ariaLabel?: string;
+}
+export interface Props {
+  links?: Array<Link>;
+}
+
+const { links } = Astro.props;
+---
+
+<header
+  class="fixed z-30 top-0 flex items-center w-full py-2 px-4 xl:px-20 justify-between"
+>
+  <div class="flex items-center gap-4">
+    <a href="/">
+      <Image
+        src={SoftwowLogo}
+        alt="Logo Softwow"
+        id="SoftwowLogo"
+        class="w-14"
+      />
+    </a>
+
+    <a
+      href="/"
+      class="contents basis-0 text-3xl font-bold tracking-tight from-[#FF1CF7] to-[#b249f8] bg-clip-text text-white bg-gradient-to-b"
+    >
+      Softwow
+    </a>
+  </div>
+  <nav>
+    <ul class="hidden lg:flex text-slate-200 font-semibold ease-in-out">
+      {
+        links?.map(({ text, href, ariaLabel }) => (
+          <li class="px-4 py-1 hover:text-blue-950 text-xl">
+            <a href={href} aria-label={ariaLabel}>
+              {text}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <Image
+      src={Menu}
+      alt="Open menu"
+      id="menuIcon"
+      class="rounded-3xl w-10 mx-auto flex lg:hidden transition-all duration-700 ease-in-out"
+    />
+
+    <Image
+      src={Close}
+      alt="Close menu"
+      id="closeIcon"
+      class="close-icon hidden menu-icon rounded-3xl w-10 mx-auto transition-transform duration-700 ease-in-out"
+    />
+  </nav>
+  <div
+    id="menu-backdrop"
+    class="absolute bg-slate-200 backdrop-blur-lg rounded-lg left-[var(--left)]
+    top-[var(--top)] w-[var(--width)] h-[var(--height)]
+    transition-all duration-300 ease-in-out opacity-0 -z-10"
+  >
+  </div>
+</header>
+<div class="hidden h-screen w-full z-20 transition-transform duration-700 ease-in-out overflow-hidden lg:hidden fixed" id="menuMobile">
+  <nav class="h-full text-lg bg-blue-950 bg-opacity-90 backdrop-blur-lg text-slate-200 justify-between flex flex-col pt-40">
+    <div class="items-start space-y-10 text-center">
+      {links?.map(({ text, href, ariaLabel }) => (
+        <a class="block w-full py-2 font-semibold" href={href} aria-label={ariaLabel}>
+          {text}
+        </a>
+      ))}
+    </div>
+    <div class="w-full flex flex-row items-center py-6 px-2 justify-center">
+      <div class="border-b-2 border-slate-300 flex-grow mx-2 lg:mx-10"></div>
+      <p class="text-slate-200 text-center text-sm">
+        Todos los derechos reservados. <br />
+        <a href="https://softwow.com.co" target="_blank" class="text-blue-400">© 2023 Softwow</a>
+      </p>
+      <div class="border-b-2 border-slate-300 flex-grow mx-2 lg:mx-10"></div>
+    </div>
+  </nav>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuIcon = document.getElementById("menuIcon") as HTMLElement;
+    const closeIcon = document.getElementById("closeIcon") as HTMLElement;
+    const menuMobile = document.getElementById("menuMobile") as HTMLElement;
+    const listItem = document.querySelectorAll("li");
+    const menuBackDrop = document.querySelector("#menu-backdrop") as HTMLElement;
+    const header = document.querySelector("header") as HTMLElement;
+
+    const toggleScrollLock = (lock:boolean) => {
+      document.body.classList.toggle("scroll-lock", lock);
+    };
+
+    const updateHeaderStyle = (isScrolled:boolean) => {
+      header.classList.toggle("bg-blue-950", isScrolled);
+      header.classList.toggle("shadow-lg", isScrolled);
+      header.classList.toggle("backdrop-blur-lg", isScrolled);
+      header.classList.toggle("bg-opacity-100", isScrolled);
+      header.classList.toggle("bg-transparent", !isScrolled);
+    };
+
+    const toggleIcons = () => {
+      const isMenuHidden = menuMobile.classList.toggle("hidden");
+      menuIcon.classList.toggle("hidden", !isMenuHidden);
+      closeIcon.classList.toggle("hidden", isMenuHidden);
+      toggleScrollLock(!isMenuHidden);
+
+      // Mantener el estado del header basado en el scroll
+      const isScrolled = window.scrollY > 50;
+      if (isMenuHidden && isScrolled) {
+        updateHeaderStyle(true);
+      } else if (!isMenuHidden) {
+        updateHeaderStyle(true);
+      } else {
+        updateHeaderStyle(false); // Vuelve a estado transparente si el scroll está en la posición inicial
+      }
+    };
+
+    const updateBackdropPosition = (item:HTMLElement) => {
+      const { left, top, width, height } = item.getBoundingClientRect();
+      menuBackDrop.style.setProperty("--left", `${left}px`);
+      menuBackDrop.style.setProperty("--top", `${top}px`);
+      menuBackDrop.style.setProperty("--width", `${width}px`);
+      menuBackDrop.style.setProperty("--height", `${height}px`);
+    };
+
+    menuIcon.addEventListener("click", toggleIcons);
+    closeIcon.addEventListener("click", toggleIcons);
+
+    document.querySelectorAll("#menuMobile a").forEach((menuItem) => {
+      menuItem.addEventListener("click", toggleIcons);
+    });
+
+    listItem.forEach((item) => {
+      item.addEventListener("mouseenter", () => {
+        updateBackdropPosition(item);
+        menuBackDrop.style.opacity = "1";
+        menuBackDrop.style.visibility = "visible";
+      });
+
+      item.addEventListener("mouseleave", () => {
+        menuBackDrop.style.opacity = "0";
+        menuBackDrop.style.visibility = "hidden";
+      });
+    });
+
+    window.addEventListener("scroll", () => {
+      const isScrolled = window.scrollY > 50;
+      updateHeaderStyle(isScrolled);
+    });
+  });
+</script>
+
+
+
+
+<style>
+  body.scroll-lock {
+    overflow: hidden;
+  }
+</style>

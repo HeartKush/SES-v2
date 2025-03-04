@@ -1,0 +1,46 @@
+---
+import { Image } from "astro:assets";
+import SpaceBg from "../ui/Space-bg.astro";
+
+export interface Props {
+  id?: string;
+  title?: string;
+  subtitle?: string;
+  tagline?: string;
+  content?: string;
+  image?: string | any;
+  alt?: string;
+}
+
+const {
+  title = await Astro.slots.render("title"),
+  subtitle = await Astro.slots.render("subtitle"),
+  content = await Astro.slots.render("content"),
+  image = await Astro.slots.render("image"),
+  alt,
+} = Astro.props;
+---
+
+<div class="flex flex-col items-center max-w-5xl pt-[74px] px-1">
+  <Image
+    class="rounded-md w-[160px] lg:w-[200px] shake-vertical"
+    width={200}
+    height={200}
+    loading="lazy"
+    decoding="async"
+    alt={alt}
+    {...image}
+  />
+
+  <div class="flex flex-col gap-4 text-center items-center">
+    <h1
+      class="text-3xl lg:text-6xl font-bold leading-tighter tracking-tighter font-heading text-slate-50"
+      set:html={title}
+    />
+    <div class="max-w-2xl mx-auto">
+      <p class="text-xl lg:text-2xl text-slate-300 " set:html={subtitle} />
+    </div>
+
+    <Fragment set:html={content} />
+  </div>
+</div>
