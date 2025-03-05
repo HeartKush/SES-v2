@@ -2,32 +2,40 @@
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import HeroSection from "../components/Hero.astro";
-import About from "../components/About.astro";
 import History from "../components/History.astro";
 import Partners from "../components/Partners.astro";
 import Footer from "../components/Footer.astro";
-import SpaceBg from "../components/ui/Space-bg.astro";
-import Contact from "../components/Contact.astro";
 ---
 
-<Layout title="Softwow">
-  <!--   <SocialMedia class="hidden md:hidden" /> -->
+<!-- Contenedor de background fijo -->
+<div class="background-fixed"></div>
 
+<Layout title="Softwow">
   <Navbar
     links={[
       { text: "Inicio", href: "#home", ariaLabel: "home" },
-      { text: "Nosotros", href: "#about", ariaLabel: "about me" },
+      { text: "Historia", href: "#history", ariaLabel: "history" },
       { text: "Aliados", href: "#partners", ariaLabel: "partners" },
-      { text: "Contacto", href: "#contact", ariaLabel: "contact" },
     ]}
   />
   <HeroSection />
 
   <main class="slide-in-top px-4 flex flex-col">
-    <About />
     <History />
     <Partners />
-    <Contact />
   </main>
   <Footer />
 </Layout>
+
+<style>
+  .background-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("/image/bg-softwow-2.jpg") no-repeat center center;
+    background-size: cover;
+    z-index: -10;
+  }
+</style>
