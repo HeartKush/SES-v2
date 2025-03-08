@@ -1,142 +1,107 @@
 ---
-import Card from "../components/ui/CardAdn.astro"
+import GalaxyButton from "./ui/galaxyButton.astro";
 ---
 
-<section id="about" class="flex gap-20 pt-20 flex-col">
-  <h2 class="text-slate-200 text-4xl lg:text-5xl text-center font-semibold">
-    ADN SOFTWOW
+<section
+  id="about"
+  class="flex flex-col md:flex-row justify-center items-center md:items-start gap-8"
+>
+  <h2
+    class="text-slate-200 text-2xl lg:text-4xl lg:text-start font-semibold text-center lg:hidden block"
+  >
+    Innovación y crecimiento para empresas
   </h2>
-  <div
-    class="shake-vertical flex flex-col md:flex-row justify-center pt-10  gap-16"
-  >
-    <!-- first card -->
-    <div class="flex flex-col justify-center">
-      <h3
-        class="text-3xl text-center font-bold tracking-tight text-slate-200 mb-5"
-      >
-        Comunicación
-      </h3>
-      <picture class="flex justify-center w-full">
-        <Card
-          description="En el ADN de Softwow, la comunicación es el puente que conecta tus ideas con nuestro equipo. Hablamos el lenguaje digital y entendemos tus necesidades, garantizando una colaboración fluida para lograr soluciones precisas y efectivas."
-          alt="comunicación"
-          image="/image/comunicacion.webp"
-        />
-      </picture>
-    </div>
-    <!-- second card -->
-    <div class="flex flex-col justify-center">
-      <h3
-        class="text-3xl text-center font-bold tracking-tight text-slate-200 mb-5"
-      >
-        Seguimiento
-      </h3>
-      <picture class="flex justify-center w-full">
-        <Card
-          description="Nuestro ADN se teje con hilos de seguimiento meticuloso. Cada acción es monitoreada, cada hito es celebrado. No perdemos detalle, asegurando que cada paso, por pequeño que sea, sea un avance palpable hacia el éxito de tu proyecto."
-          alt="seguimiento"
-          image="/image/seguimiento.webp"
-        />
-      </picture>
-    </div>
-  </div>
-  <div
-    class="shake-vertical flex flex-col mt-16 md:mt-10 pb-16 md:flex-row justify-center gap-16 xl:pb-0"
-  >
-    <!-- first card -->
-    <div class="flex flex-col justify-center">
-      <h3
-        class="text-3xl text-center font-bold tracking-tight text-slate-200 mb-5"
-      >
-        Resultados
-      </h3>
-      <picture class="flex justify-center w-full">
-        <Card
-          description="Desde Softwow, convertimos la visión en resultados tangibles. Nuestro ADN está impregnado de un compromiso firme con la entrega de soluciones que superen expectativas. Los resultados que logramos hablan por sí mismos, reflejando calidad y excelencia."
-          alt="resultados"
-          image="/image/resultados.webp"
-        />
-      </picture>
-    </div>
-    <!-- second card -->
-    <div class="flex flex-col justify-center">
-      <h3
-        class="text-3xl text-center font-bold tracking-tight text-slate-200 mb-5"
-      >
-        Desempeño
-      </h3>
-      <picture class="flex justify-center w-full">
-        <Card
-          description="El desempeño excepcional es parte esencial del ADN de Softwow. Nos esforzamos por alcanzar y superar estándares en cada proyecto. La excelencia es nuestra norma, y nuestro desempeño es un reflejo de la dedicación y habilidades que aportamos a cada tarea."
-          alt="desempeño"
-          image="/image/desempeno.webp"
-        />
-      </picture>
-    </div>
+  <div class="w-fit">
+    <iframe
+      class="rounded-[8px]"
+      src="https://player.vimeo.com/video/1062997354?badge=0&autopause=0&player_id=0&app_id=58479"
+      width="281"
+      height="500"
+      frameborder="0"
+      allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+      title="Softwow: La clave para escalar tu negocio con tecnología y comercio electrónico �"
+    ></iframe>
   </div>
 
+  <div class="max-w-[600px] flex flex-col gap-20">
+    <div class="flex flex-col gap-10">
+      <h2
+        class="text-slate-200 text-2xl lg:text-4xl lg:text-start font-semibold text-center hidden lg:block"
+      >
+        Innovación y crecimiento para empresas que quieren más
+      </h2>
+      <div class="flex flex-col gap-4">
+        <p class="text-slate-200 text-lg">
+          En Colombia, solo 3 de cada 10 empresas están aprovechando las
+          oportunidades del comercio electrónico y la automatización de
+          procesos. En Softwow, queremos cambiar esta realidad brindando una
+          solución integral para negocios que buscan crecer con tecnología,
+          estrategia y formación especializada.
+        </p>
+        <p class="text-slate-200 text-lg">
+          Descubre cómo Softwow puede potenciar tu negocio.
+        </p>
+      </div>
+    </div>
+
+    <GalaxyButton buttonText="Chateá con nosotros" />
+  </div>
+
+  <style>
+    button {
+      color: #fff6fb;
+      background-color: transparent;
+      border: 2px solid #ffffff;
+      border-radius: 8px;
+      transition: 100ms;
+    }
+
+    button:hover {
+      box-shadow:
+        0 0 0 1px #f11271,
+        0 0 10px 2px #7743db,
+        inset 0 0 0 1px #f11271,
+        inset 0 0 30px 2px #7743db;
+      transform: translateY(0px);
+      text-shadow:
+        -1px -1px 0 #7743db,
+        1px 1px 0 #e94be8;
+    }
+
+    button:active {
+      box-shadow:
+        0 0 0 1px #f11271,
+        0 0 25px 2px #7743db,
+        inset 0 0 0 1px #f11271,
+        inset 0 0 30px 2px #7743db;
+      transform: translateY(1px);
+    }
+    button::after {
+      --move1: inset(50% 50% 50% 50%);
+      --move2: inset(31% 0 40% 0);
+      --move3: inset(39% 0 15% 0);
+      --move4: inset(45% 0 40% 0);
+      --move5: inset(45% 0 6% 0);
+      --move6: inset(14% 0 61% 0);
+      clip-path: var(--move1);
+      content: "Hire me";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: block;
+    }
+    button:nth-child(2)::after {
+      content: "Hire me";
+    }
+    button:hover::after {
+      animation: glitch_4011 1s;
+      animation-timing-function: steps(2, end);
+      text-shadow:
+        -3px -3px 0 #7743db,
+        3px 3px 0 #e94be8;
+      background-color: transparent;
+    }
+  </style>
 </section>
-<style>
-  .shake-vertical {
-    -webkit-animation: shake-vertical 18s
-      cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite both;
-    animation: shake-vertical 18s cubic-bezier(0.455, 0.03, 0.515, 0.955)
-      infinite both;
-  }
-  @-webkit-keyframes shake-vertical {
-    0%,
-    100% {
-      -webkit-transform: translateY(0);
-      transform: translateY(0);
-    }
-    10%,
-    30%,
-    50%,
-    70% {
-      -webkit-transform: translateY(-8px);
-      transform: translateY(-8px);
-    }
-    20%,
-    40%,
-    60% {
-      -webkit-transform: translateY(8px);
-      transform: translateY(8px);
-    }
-    80% {
-      -webkit-transform: translateY(6.4px);
-      transform: translateY(6.4px);
-    }
-    90% {
-      -webkit-transform: translateY(-6.4px);
-      transform: translateY(-6.4px);
-    }
-  }
-  @keyframes shake-vertical {
-    0%,
-    100% {
-      -webkit-transform: translateY(0);
-      transform: translateY(0);
-    }
-    10%,
-    30%,
-    50%,
-    70% {
-      -webkit-transform: translateY(-8px);
-      transform: translateY(-8px);
-    }
-    20%,
-    40%,
-    60% {
-      -webkit-transform: translateY(8px);
-      transform: translateY(8px);
-    }
-    80% {
-      -webkit-transform: translateY(6.4px);
-      transform: translateY(6.4px);
-    }
-    90% {
-      -webkit-transform: translateY(-6.4px);
-      transform: translateY(-6.4px);
-    }
-  }
-</style>

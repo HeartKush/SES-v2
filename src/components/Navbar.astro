@@ -18,7 +18,7 @@ const { links } = Astro.props;
 ---
 
 <header
-  class="fixed z-30 top-0 flex items-center w-full py-2 px-4 xl:px-20 justify-between"
+  class="fixed z-30 top-0 flex items-center w-full py-2 px-4 xl:px-20 justify-between bg-blue-950 bg-opacity-5"
 >
   <div class="flex items-center gap-4">
     <a href="/">
@@ -79,14 +79,6 @@ const { links } = Astro.props;
           {text}
         </a>
       ))}
-    </div>
-    <div class="w-full flex flex-row items-center py-6 px-2 justify-center">
-      <div class="border-b-2 border-slate-300 flex-grow mx-2 lg:mx-10"></div>
-      <p class="text-slate-200 text-center text-sm">
-        Todos los derechos reservados. <br />
-        <a href="https://softwow.com.co" target="_blank" class="text-blue-400">© 2023 Softwow</a>
-      </p>
-      <div class="border-b-2 border-slate-300 flex-grow mx-2 lg:mx-10"></div>
     </div>
   </nav>
 </div>

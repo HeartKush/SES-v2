@@ -10,22 +10,31 @@ import SpaceBg from "./ui/Space-bg.astro";
         image={{ src: "/image/logoBlanco.webp", alt: "SES logo imagen" }}
       >
         <Fragment slot="title">
-          Transforma tu negocio con soluciones digitales a tu medida
+          <h1
+            class="text-2xl lg:text-6xl font-black leading-tighter tracking-tighter font-heading text-slate-50"
+          >
+            Transforma tu negocio con <a class="underline decoration-[#feb578]"
+              >soluciones digitales</a
+            > a tu medida
+          </h1>
         </Fragment>
 
         <Fragment slot="subtitle">
-          ¡Habla con nosotros y comienza tu transformación digital hoy!
+          <p class="hidden lg:block text-lg lg:text-2xl text-slate-300">
+            ¡Habla con nosotros y comienza tu transformación digital!
+          </p>
         </Fragment>
+
         <Fragment slot="content">
           <a
             class="flex"
-            href="https://share.hsforms.com/1CG3r046qTmepbtFNNcKNGgcwalw"
+            href="https://calendly.com/erikson-rojas/softwow"
             target="_blank"
           >
             <button
-              class="relative text-xl text-slate-50 overflow-visible rounded-full hover:-translate-y-1 px-12 py-3 shadow-xl bg-blue-950 after:content-[''] after:absolute after:rounded-full after:inset-0 after:bg-blue-950/20 after:z-[-1] after:transition after:!duration-500 hover:after:scale-150 hover:after:opacity-0"
+              class="relative text-lg text-slate-50 overflow-visible rounded-[8px] hover:-translate-y-1 px-8 py-2 bg-blue-950 after:content-[''] after:absolute after:rounded-[8px] after:inset-0 after:bg-blue-950/20 after:z-[-1] after:transition after:!duration-500 hover:after:scale-150 hover:after:opacity-0"
               role="button"
-              id="hire">Agenda asesoria gratis</button
+              id="hire">Obtén tu asesoría gratuita</button
             >
           </a>
         </Fragment>

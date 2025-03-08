@@ -8,9 +8,9 @@ const App = ({ picturesObject }) => {
         aria-label="Options"
         classNames={{
           tabList:
-            "border-b border-divider flex-wrap mx-auto gap-0 bg-neutral-100 w-full lg:w-1/2 lg:flex-nowrap",
+            "border-b border-divider flex-nowrap mx-auto gap-0 bg-neutral-100 w-full lg:w-1/2 lg:flex-nowrap",
           cursor: "bg-blue-950",
-          panel: "w-1/2 mx-auto",
+          panel: "lg:w-1/2 mx-auto",
           base: "",
           tab: "h-10",
           tabContent: "text-slate-950",
