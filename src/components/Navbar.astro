@@ -83,20 +83,25 @@ const { links } = Astro.props;
   </nav>
 </div>
 
-<script>
+<script is:inline>
   document.addEventListener("DOMContentLoaded", () => {
-    const menuIcon = document.getElementById("menuIcon") as HTMLElement;
-    const closeIcon = document.getElementById("closeIcon") as HTMLElement;
-    const menuMobile = document.getElementById("menuMobile") as HTMLElement;
+    const menuIcon = document.getElementById("menuIcon");
+    const closeIcon = document.getElementById("closeIcon");
+    const menuMobile = document.getElementById("menuMobile");
     const listItem = document.querySelectorAll("li");
-    const menuBackDrop = document.querySelector("#menu-backdrop") as HTMLElement;
-    const header = document.querySelector("header") as HTMLElement;
+    const menuBackDrop = document.querySelector("#menu-backdrop");
+    const header = document.querySelector("header");
 
-    const toggleScrollLock = (lock:boolean) => {
+    if (!menuIcon || !closeIcon || !menuMobile || !menuBackDrop || !header) {
+      console.warn("Some navigation elements were not found");
+      return;
+    }
+
+    const toggleScrollLock = (lock) => {
       document.body.classList.toggle("scroll-lock", lock);
     };
 
-    const updateHeaderStyle = (isScrolled:boolean) => {
+    const updateHeaderStyle = (isScrolled) => {
       header.classList.toggle("bg-blue-950", isScrolled);
       header.classList.toggle("shadow-lg", isScrolled);
       header.classList.toggle("backdrop-blur-lg", isScrolled);
@@ -117,11 +122,11 @@ const { links } = Astro.props;
       } else if (!isMenuHidden) {
         updateHeaderStyle(true);
       } else {
-        updateHeaderStyle(false); // Vuelve a estado transparente si el scroll está en la posición inicial
+        updateHeaderStyle(false);
       }
     };
 
-    const updateBackdropPosition = (item:HTMLElement) => {
+    const updateBackdropPosition = (item) => {
       const { left, top, width, height } = item.getBoundingClientRect();
       menuBackDrop.style.setProperty("--left", `${left}px`);
       menuBackDrop.style.setProperty("--top", `${top}px`);
@@ -155,9 +160,6 @@ const { links } = Astro.props;
     });
   });
 </script>
-
-
-
 
 <style>
   body.scroll-lock {
