@@ -8,14 +8,5 @@ export default defineConfig({
     ssr: {
       noExternal: ['@nextui-org/react']
     }
-  },
-  image: {
-    service: {
-      entrypoint: 'astro/assets/services/sharp',
-      config: {
-        limitInputPixels: false,
-        processConcurrency: 1
-      }
-    }
   }
 });
