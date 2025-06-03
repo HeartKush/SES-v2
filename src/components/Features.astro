@@ -1,0 +1,40 @@
+---
+import { FaRobot, FaChartLine, FaDatabase } from "react-icons/fa";
+
+const features = [
+  {
+    icon: FaRobot,
+    title: "Bot 24/7",
+    description: "Atención automatizada las 24 horas del día"
+  },
+  {
+    icon: FaDatabase,
+    title: "CRM integrado",
+    description: "Gestiona tus clientes en una sola plataforma"
+  },
+  {
+    icon: FaChartLine,
+    title: "Analítica en tiempo real",
+    description: "Monitorea el rendimiento de tu negocio al instante"
+  }
+];
+---
+
+<section id="features" class="py-20">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center text-white mb-12">
+      Características mágicas
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {features.map(({ icon: Icon, title, description }) => (
+        <div class="bg-blue-950/50 backdrop-blur-sm p-6 rounded-lg border border-white/10 hover:scale-105 transition-transform duration-300">
+          <div class="flex items-center justify-center w-12 h-12 mb-4 text-white">
+            <Icon className="w-8 h-8" />
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-2">{title}</h3>
+          <p class="text-gray-300">{description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

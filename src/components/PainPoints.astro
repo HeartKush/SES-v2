@@ -1,0 +1,40 @@
+---
+import { FaRegClock, FaUserFriends, FaClipboardList } from "react-icons/fa";
+
+const painPoints = [
+  {
+    icon: FaRegClock,
+    title: "Mensajes sin responder",
+    description: "No pierdas más oportunidades por demoras en la atención"
+  },
+  {
+    icon: FaUserFriends,
+    title: "Clientes se van al competidor",
+    description: "Retén a tus clientes con atención personalizada 24/7"
+  },
+  {
+    icon: FaClipboardList,
+    title: "Tiempo perdido copiando datos",
+    description: "Automatiza la gestión de información de tus clientes"
+  }
+];
+---
+
+<section id="pain-points" class="py-20">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center text-white mb-12">
+      Resuelve tus dolores de cabeza
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {painPoints.map(({ icon: Icon, title, description }) => (
+        <div class="bg-blue-950/50 backdrop-blur-sm p-6 rounded-lg border border-white/10 hover:scale-105 transition-transform duration-300">
+          <div class="flex items-center justify-center w-12 h-12 mb-4 text-white">
+            <Icon className="w-8 h-8" />
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-2">{title}</h3>
+          <p class="text-gray-300">{description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,25 @@
+---
+const stats = [
+  {
+    value: "-40%",
+    label: "tiempo de respuesta"
+  },
+  {
+    value: "+25%",
+    label: "conversión"
+  }
+];
+---
+
+<section id="stats" class="py-20 bg-blue-950/50 backdrop-blur-sm">
+  <div class="container mx-auto px-4">
+    <div class="flex flex-wrap justify-center gap-12">
+      {stats.map(({ value, label }) => (
+        <div class="text-center">
+          <p class="text-4xl font-bold text-yellow-400 mb-2">{value}</p>
+          <p class="text-white text-lg">{label}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

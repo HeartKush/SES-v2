@@ -2,6 +2,10 @@
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import HeroSection from "../components/Hero.astro";
+import PainPoints from "../components/PainPoints.astro";
+import Features from "../components/Features.astro";
+import Stats from "../components/Stats.astro";
+import Process from "../components/Process.astro";
 
 ---
 <Layout title="Softwow">
@@ -17,7 +21,10 @@ import HeroSection from "../components/Hero.astro";
   <HeroSection />
 
   <main class="slide-in-top px-4 flex flex-col gap-10 lg:gap-20 pt-10 lg:pt-40">
-    <!-- New sections will be added here -->
+    <PainPoints />
+    <Features />
+    <Stats />
+    <Process />
   </main>
 </Layout>
 
