@@ -2,28 +2,23 @@
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import HeroSection from "../components/Hero.astro";
-import History from "../components/History.astro";
-import Partners from "../components/Partners.astro";
-import Footer from "../components/Footer.astro";
-import About from "../components/About.astro";
+
 ---
 <Layout title="Softwow">
   <div class="background-fixed"></div>
   <Navbar
     links={[
       { text: "Inicio", href: "#home", ariaLabel: "home" },
-      { text: "Historia", href: "#history", ariaLabel: "history" },
-      { text: "Aliados", href: "#partners", ariaLabel: "partners" },
+      { text: "Servicios", href: "#services", ariaLabel: "services" },
+      { text: "Proyectos", href: "#projects", ariaLabel: "projects" },
+      { text: "Contacto", href: "#contact", ariaLabel: "contact" },
     ]}
   />
   <HeroSection />
 
   <main class="slide-in-top px-4 flex flex-col gap-10 lg:gap-20 pt-10 lg:pt-40">
-    <About />
-    <History />
-    <Partners />
+    <!-- New sections will be added here -->
   </main>
-  <Footer />
 </Layout>
 
 <style>
