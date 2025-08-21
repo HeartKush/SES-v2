@@ -1,9 +1,10 @@
 ---
 import HeroSection from "../components/widgets/Hero.astro";
 import SpaceBg from "./ui/Space-bg.astro";
+import ShapeDivider from "./ui/ShapeDivider.astro";
 ---
 
-<section id="home">
+<section id="home" class="relative">
   <SpaceBg>
     <Fragment slot="content">
       <HeroSection
@@ -41,4 +42,5 @@ import SpaceBg from "./ui/Space-bg.astro";
       </HeroSection>
     </Fragment>
   </SpaceBg>
+  <ShapeDivider position="bottom" color="#1e3a8a" height="120px" />
 </section>
